@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Post</title>
+</head>
+<body>
+    <form id="myForm" method="post" action="http://localhost:8080/api/v1/categories">
+        <label for="name">Nome:</label>
+        <input type="text" id="jsonData" name="name"><br><br>
+        <input type="submit" value="Invia">
+    </form>
+</body>
+
+<script>
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita l'invio del form
+    var formData = {
+      name: document.getElementById("name").value,
+    };
+    var jsonData = JSON.stringify(formData); // Serializza i dati in formato JSON
+    document.getElementById("jsonData").value = jsonData; // Assegna i dati al campo nascosto
+    this.submit(); // Invia il form
+  });
+</script>
+</html>
